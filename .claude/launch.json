@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "electricsound",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4173", "--directory", "/Users/faizaan/Documents/GitHub/ElectricSound"],
+      "port": 4173
+    }
+  ]
+}

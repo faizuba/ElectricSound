@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ElectricSound · Engine sound for your EV</title>
+  <meta name="description" content="ElectricSound gives an electric car the sound of a combustion engine. Pick a car, start the engine, and the sound follows your GPS speed. Free.">
+  <meta name="theme-color" content="#0a0b0d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0b0d'/%3E%3Cpath d='M14 44a20 20 0 1 1 36 0' fill='none' stroke='%233a9bff' stroke-width='6' stroke-linecap='round'/%3E%3Cpath d='M32 40 44 22' stroke='%23fff' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wdth,wght@0,50..125,100..900;1,50..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true">
+    <div class="bd-glow"></div>
+    <div class="bd-layer" id="bdA"></div>
+    <div class="bd-layer" id="bdB"></div>
+    <div class="bd-floor"></div>
+  </div>
+
+  <header class="top">
+    <a class="brand" href="#top" aria-label="ElectricSound">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-name">ElectricSound</span>
+    </a>
+    <div class="top-tools">
+      <div class="seg seg-sm" role="group" aria-label="Speed units">
+        <button type="button" data-unit="mph">MPH</button>
+        <button type="button" data-unit="kmh">KM/H</button>
+      </div>
+      <button type="button" class="icon-btn" id="fsBtn" aria-label="Toggle full screen" title="Full screen">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="cockpit" aria-label="Cockpit">
+      <div class="car-panel">
+        <p class="eyebrow" id="carTag"></p>
+        <h1 id="carName"></h1>
+        <dl class="specs" id="carSpecs"></dl>
+        <button type="button" class="link-btn" id="changeCar">Change car <span aria-hidden="true">↓</span></button>
+      </div>
+
+      <div class="dash">
+        <div class="gauge" id="gauge">
+          <canvas id="gaugeCanvas" aria-hidden="true"></canvas>
+          <div class="gauge-read">
+            <div class="speed" id="speed" aria-live="off">0</div>
+            <div class="unit" id="unit">mph</div>
+            <div class="gear-row">
+              <span class="gear" id="gear">–</span>
+              <span class="rpm"><b id="rpm">0</b> rpm</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="throttle" aria-hidden="true">
+          <span>Throttle</span>
+          <div class="bar"><i id="thrBar"></i></div>
+        </div>
+
+        <div class="controls">
+          <div class="seg" role="group" aria-label="Drive mode">
+            <button type="button" data-mode="gps">GPS drive</button>
+            <button type="button" data-mode="test">Test drive</button>
+          </div>
+
+          <div class="main-row">
+            <button type="button" class="start" id="startBtn">
+              <span class="start-dot" aria-hidden="true"></span>
+              <span id="startLabel">Start engine</span>
+            </button>
+            <button type="button" class="rev" id="revBtn" disabled>Hold to rev</button>
+          </div>
+
+          <div class="pedals" id="pedals" hidden>
+            <button type="button" class="pedal brake" id="brakePedal" aria-label="Brake"><span>Brake</span><i></i></button>
+            <button type="button" class="pedal gas" id="gasPedal" aria-label="Gas"><span>Gas</span><i></i></button>
+          </div>
+
+          <p class="status" id="status" role="status"></p>
+
+          <label class="volume">
+            <span>Volume</span>
+            <input type="range" id="volume" min="0" max="100" value="80">
+            <output id="volumeOut">80%</output>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section class="garage" id="garage" aria-label="Garage">
+      <div class="section-head">
+        <h2>Garage</h2>
+        <p><span id="carCount"></span> engines, all free. Tap one to load it. You can swap while the engine is running.</p>
+      </div>
+      <div class="grid" id="carGrid"></div>
+    </section>
+
+    <section class="info" aria-label="About ElectricSound">
+      <article>
+        <h2>In your Tesla</h2>
+        <ol>
+          <li>While parked, open this page in the car's browser and bookmark it.</li>
+          <li>Pick a car, choose <b>GPS drive</b> and press <b>Start engine</b>. Say yes when the browser asks for location.</li>
+          <li>Turn the media volume up and drive. The engine follows your real speed.</li>
+          <li>Waiting at a light? Hold <b>Rev</b>.</li>
+        </ol>
+      </article>
+      <article>
+        <h2>How the sound is made</h2>
+        <p>There are no recordings. Each engine is modelled live in the browser: every cylinder fires in its real order, and the pulses run through simulated headers, pipes and a muffler. Turbo whistle, supercharger whine and lift-off crackle sit on top.</p>
+        <p>A virtual gearbox picks gears from your speed, so you hear upshifts, downshifts and the limiter.</p>
+      </article>
+      <article>
+        <h2>About the speed reading</h2>
+        <p>Speed comes straight from the GPS receiver. Fixes arrive about once a second, so ElectricSound runs a small motion filter that predicts between fixes to keep the engine smooth and close to the car's own speedometer.</p>
+        <p>Your location stays in this browser. Nothing is uploaded, there is no account and nothing to pay.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>ElectricSound is a hobby project and is not affiliated with Tesla or any car maker. Car names describe the sound profile each engine is modelled on, and specs are approximate. Sound plays through the cabin speakers like music. Set it up while parked and keep your eyes on the road.</p>
+  </footer>
+
+  <script src="js/engine-dsp.js"></script>
+  <script src="js/cars.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
