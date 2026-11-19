@@ -12,6 +12,6 @@ ElectricSound uses GPS tracking to measure how fast you're going and how hard yo
 - **17 cars to pick from**, including the Porsche 911 GT3, Lamborghini Huracán, Ferrari 812 Superfast and Bugatti Chiron, each with its engine and exhaust specs.
 - **Test drive mode**: try any car with on-screen gas and brake pedals, no driving needed.
 
-## Why
+## Purpose
 
 ElectricSound is meant as a fun way to enjoy EVs. Electric cars are quick, smooth and quiet; this adds the soundtrack. Pick a flat-six, a V10 or a V12 and hear it sing every time you pull away from a light.
