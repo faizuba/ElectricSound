@@ -1,6 +1,6 @@
 # ElectricSound
 
-Fun project that brings the sound of a combustion engine to your EV.
+Prototyping synthetic engine sound for electric vehicles, from motor whine to acceleration feedback
 
 ## What it is
 
