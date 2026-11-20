@@ -167,7 +167,7 @@
     estimate: function (t) {
       if (!this.lastFixT) return { v: 0, a: 0, age: Infinity };
       var age = t - this.lastFixT;
-      var lead = Math.min(age, 1.2);
+      var lead = Math.min(age, 0.8);
       var a = age > 2.5 ? 0 : this.a;
       return { v: Math.max(0, this.v + a * lead), a: a, age: age };
     }

@@ -52,7 +52,7 @@
     {
       id: 'gt3', name: 'Porsche 911 GT3', tag: 'Flat-six · naturally aspirated', color: '#3a9bff',
       line: '4.0 L flat-six · 9,000 rpm · 7-speed PDK',
-      specs: { Engine: '4.0 L flat-six', Aspiration: 'Naturally aspirated, six throttle bodies', Exhaust: 'Lightweight stainless sport exhaust, twin centre tailpipes', Power: '502 hp', Redline: '9,000 rpm', Gearbox: '7-speed PDK dual-clutch' },
+      specs: { Engine: '4.0 L flat-six', Exhaust: 'Lightweight stainless sport exhaust, twin centre tailpipes', Power: '502 hp', Redline: '9,000 rpm', Gearbox: '7-speed PDK dual-clutch' },
       drive: { idle: 950, redline: 9000, gears: [77, 132, 178, 221, 264, 304, 340], shift: 0.08, box: 'dct', acc: 9.5, pw: 261, revUp: 15000, revDown: 7500 },
       sound: ice(FLAT6, 9000, { pulseMs: 1.5, header: [0.8, 0.3], pipe: [5.5, 0.45], loopHz: 3400, muffle: [900, 7500], formants: [[420, 3, 0.9], [1100, 4, 0.8], [2600, 4, 0.5]], noise: 0.3, drive: 2.0, jitter: 0.05, intake: 0.5, intakeHz: 700, pops: 0.35 }),
       shape: { yb: 40, wheels: [222, 760], r: 75,
