@@ -15,3 +15,5 @@ ElectricSound uses GPS tracking to measure how fast you're going and how hard yo
 ## Purpose
 
 ElectricSound is meant as a fun way to enjoy EVs. Electric cars are quick, smooth and quiet; this adds the soundtrack. Pick a flat-six, a V10 or a V12 and hear it sing every time you pull away from a light.
+
+<img width="771" height="261" alt="Screenshot 2026-11-19 at 7 27 30 PM" src="https://github.com/user-attachments/assets/948aa64c-8399-43e3-8a66-39429b1d0695" />
